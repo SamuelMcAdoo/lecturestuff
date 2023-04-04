@@ -20,14 +20,16 @@ document.getElementById("input").addEventListener("keyup", function (event) {
     }
 });
 
-document.getElementById("refresh").addEventListener("click"){
+/*document.getElementById("refresh").addEventListener("click",function(event){
     let request= {};
     ws.send(JSON.stringify(request));
-}
+});
 
 document.getElementById("submit").onclick = function(){
 
 }
+
+ */
 
 
 function timestamp() {
