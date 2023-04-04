@@ -20,6 +20,16 @@ document.getElementById("input").addEventListener("keyup", function (event) {
     }
 });
 
+document.getElementById("refresh").addEventListener("click"){
+    let request= {};
+    ws.send(JSON.stringify(request));
+}
+
+document.getElementById("submit").onclick = function(){
+
+}
+
+
 function timestamp() {
     var d = new Date(), minutes = d.getMinutes();
     if (minutes < 10) minutes = '0' + minutes;
