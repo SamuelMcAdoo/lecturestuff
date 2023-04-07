@@ -27,22 +27,15 @@ document.getElementById("input").addEventListener("keyup", function (event) {
     caught in the backend and parsed for meaning.
     for Kei, I've left you openings in the backend to fill
     with how exactly you'd like to package the map for Gremmy
-    to serve to the front end
+    to serve to the front end. For now, it has a unique type
+    and a more technical message
         ~ Sam
  */
-/*
 const button1 = document.querySelector('#refresh');
 button1.addEventListener('click', () => {
-    const data = {
-        // so here we would add some identifier message about
-        // the button being pressed for refresh.
-        message: ''
-    };
-    const jsonString = JSON.stringify(data);
-    ws.send(jsonString);
+    let request = {"type":"refresh","msg":"refresh_rooms"};
+    ws.send(request);
 });
-
- */
 
 // this button directly runs a script, but otherwise
 // operates the same way.

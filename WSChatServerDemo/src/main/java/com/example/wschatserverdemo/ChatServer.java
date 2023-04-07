@@ -43,27 +43,28 @@ public class ChatServer {
         JSONObject jsonmsg = new JSONObject(comm); // grab string from message json
         String type = (String) jsonmsg.get("type");
         String message = (String) jsonmsg.get("msg");
-
-        if(usernames.containsKey(userID)){ // not their first message
-            String username = usernames.get(userID);
-            System.out.println(username);
-            // for peer in all peers...:
-            for(Session peer: session.getOpenSessions()){
-                // only if they're in our room! Secret!
-                if(roomList.get(peer.getId()).equals(roomID)) {
-                    peer.getBasicRemote().sendText("{\"type\": \"chat\", \"message\":\"(" + username + "): " + message + "\"}");
+        //if(type == "chat") {
+            if (usernames.containsKey(userID)) { // not their first message
+                String username = usernames.get(userID);
+                System.out.println(username);
+                // for peer in all peers...:
+                for (Session peer : session.getOpenSessions()) {
+                    // only if they're in our room! Secret!
+                    if (roomList.get(peer.getId()).equals(roomID)) {
+                        peer.getBasicRemote().sendText("{\"type\": \"chat\", \"message\":\"(" + username + "): " + message + "\"}");
+                    }
+                }
+            } else { //first message is their username
+                usernames.put(userID, message);
+                session.getBasicRemote().sendText("{\"type\": \"chat\", \"message\":\"(Server ): Welcome, " + message + "!\"}");
+                for (Session peer : session.getOpenSessions()) {
+                    // only print out to users with same roomID as the user that sends the message, excluding user.
+                    if ((!peer.getId().equals(userID)) && (roomList.get(peer.getId()).equals(roomID))) {
+                        peer.getBasicRemote().sendText("{\"type\": \"chat\", \"message\":\"(Server): " + message + " joined the chat room.\"}");
+                    }
                 }
             }
-        }else{ //first message is their username
-            usernames.put(userID, message);
-            session.getBasicRemote().sendText("{\"type\": \"chat\", \"message\":\"(Server ): Welcome, " + message + "!\"}");
-            for(Session peer: session.getOpenSessions()){
-                // only print out to users with same roomID as the user that sends the message, excluding user.
-                if((!peer.getId().equals(userID)) && (roomList.get(peer.getId()).equals(roomID))){
-                    peer.getBasicRemote().sendText("{\"type\": \"chat\", \"message\":\"(Server): " + message + " joined the chat room.\"}");
-                }
-            }
-        }
+        //}
 
     }
 
