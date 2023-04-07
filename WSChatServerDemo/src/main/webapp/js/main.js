@@ -44,7 +44,8 @@ button1.addEventListener('click', () => {
 
  */
 
-// this button operates the same way.
+// this button directly runs a script, but otherwise
+// operates the same way.
 const button2 = document.querySelector('#submit');
 button2.addEventListener('click', () =>{
     const inp = document.getElementById("input");
