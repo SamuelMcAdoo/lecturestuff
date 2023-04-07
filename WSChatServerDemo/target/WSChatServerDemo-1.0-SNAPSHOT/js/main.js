@@ -33,7 +33,7 @@ document.getElementById("input").addEventListener("keyup", function (event) {
  */
 const button1 = document.querySelector('#refresh');
 button1.addEventListener('click', () => {
-    let request = {"type":"refresh","msg":"refresh_rooms"};
+    let request = {"type":"refresh","msg":"rooms"};
     ws.send(request);
 });
 

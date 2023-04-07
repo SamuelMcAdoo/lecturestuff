@@ -41,9 +41,15 @@ public class ChatServer {
         String userID = session.getId(); // users' ID
         String roomID = roomList.get(userID); // specific room
         JSONObject jsonmsg = new JSONObject(comm); // grab string from message json
-        String type = (String) jsonmsg.get("type");
-        String message = (String) jsonmsg.get("msg");
-        //if(type == "chat") {
+        String type = jsonmsg.getString("type");
+        String message = jsonmsg.getString("msg");
+
+        // look for refresh type messages..:
+        if(type.equals("refresh")){
+
+        }
+        // look for chat type messages..:
+        else if(type.equals("chat")) {
             if (usernames.containsKey(userID)) { // not their first message
                 String username = usernames.get(userID);
                 System.out.println(username);
@@ -64,7 +70,7 @@ public class ChatServer {
                     }
                 }
             }
-        //}
+        }
 
     }
 
