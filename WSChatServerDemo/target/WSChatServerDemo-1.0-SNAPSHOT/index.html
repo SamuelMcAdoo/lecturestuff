@@ -1,23 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Chat</title>
-    <link rel="stylesheet" href="css/main.css">
+    <meta charset="utf-8">
+    <title>Chat Server</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <meta name="theme-color" content="#fafafa">
 </head>
-<body style="margin:0;">
+
+<body style="background-color:grey;">
+
+<!-- Add your site or application content here -->
+<div class="header">
+    <h1>Chat Server
+        <a href="about.html" class="right">About</a>
+        <a href="index.html" class="right">Home</a>
+    </h1>
+</div>
+
+<div style="color: #111111; margin-left: 50px; font-size: 1.2em;">
+    <p> list of char rooms </p>
+
+</div>
+
+
 <button id="refresh">refresh</button>
 <div id="room">
     <input type="text" id="room-code">
     <button id="btRoom" onclick="enterRoom()">ENTER</button>
 </div>
-<textarea title="Chat Log" id="log" readonly
-          style="display: block; width: 100%; height: 600px; resize: none; margin: 0; padding: 0; border: 0;"></textarea>
-<input title="Chat Input" id="input" type="text" style="display: block; width: 80%; border-width: 1px 0 1px 0;"
-       autofocus/>
-<button id="submit">Submit</button>
 
 
+
+<div id="chat" class="main">
+    <textarea title="Chat Log" id="log" readonly class="chat"></textarea>
+    <input title="Chat Input" id="input" type="text" class="input"/>
+    <button id="submit" style="margin-left: 300px">Send</button>
+</div>
+
+
+
+
+
+<script src="js/vendor/modernizr-3.11.2.min.js"></script>
+<script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
+
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async></script>
 </body>
+
 </html>

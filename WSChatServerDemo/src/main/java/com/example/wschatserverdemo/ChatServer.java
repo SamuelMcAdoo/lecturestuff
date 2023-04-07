@@ -46,7 +46,9 @@ public class ChatServer {
 
         // look for refresh type messages..:
         if(type.equals("refresh")){
-
+            if(message.equals("rooms")){
+                session.getBasicRemote().sendText("{\"type\": \"chat\", \"message\": \"your mom\"}");
+            }
         }
         // look for chat type messages..:
         else if(type.equals("chat")) {

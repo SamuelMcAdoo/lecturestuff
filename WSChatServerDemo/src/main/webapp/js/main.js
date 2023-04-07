@@ -22,7 +22,7 @@ document.getElementById("input").addEventListener("keyup", function (event) {
 
 /*
     on buttons:
-    This button work by sending a message to the backend.
+    This button works by sending a message to the backend.
     I've made these messages unique, and they need to be
     caught in the backend and parsed for meaning.
     for Kei, I've left you openings in the backend to fill
@@ -34,7 +34,7 @@ document.getElementById("input").addEventListener("keyup", function (event) {
 const button1 = document.querySelector('#refresh');
 button1.addEventListener('click', () => {
     let request = {"type":"refresh","msg":"rooms"};
-    ws.send(request);
+    ws.send(JSON.stringify(request));
 });
 
 // this button directly runs a script, but otherwise
