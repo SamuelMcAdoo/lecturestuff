@@ -20,16 +20,38 @@ document.getElementById("input").addEventListener("keyup", function (event) {
     }
 });
 
-/*document.getElementById("refresh").addEventListener("click",function(event){
-    let request= {};
-    ws.send(JSON.stringify(request));
+/*
+    on buttons:
+    This button work by sending a message to the backend.
+    I've made these messages unique, and they need to be
+    caught in the backend and parsed for meaning.
+    for Kei, I've left you openings in the backend to fill
+    with how exactly you'd like to package the map for Gremmy
+    to serve to the front end
+        ~ Sam
+ */
+/*
+const button1 = document.querySelector('#refresh');
+button1.addEventListener('click', () => {
+    const data = {
+        // so here we would add some identifier message about
+        // the button being pressed for refresh.
+        message: ''
+    };
+    const jsonString = JSON.stringify(data);
+    ws.send(jsonString);
 });
 
-document.getElementById("submit").onclick = function(){
-
-}
-
  */
+
+// this button operates the same way.
+const button2 = document.querySelector('#submit');
+button2.addEventListener('click', () =>{
+    const inp = document.getElementById("input");
+    let request = {"type":"chat", "msg":inp.value};
+    ws.send(JSON.stringify(request));
+    inp.value="";
+})
 
 
 function timestamp() {
